@@ -1,0 +1,1 @@
+from .check_content import check_content_type
