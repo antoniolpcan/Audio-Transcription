@@ -1,8 +1,8 @@
 from functions.check.__init__ import check_content_type
 from .transcript.__init__ import transcription
 from .create_file.__init__ import file_res,cria_pasta,get_zip
+from fastapi import UploadFile,File,Body
 from io import BytesIO
-from fastapi import UploadFile,File,Body,HTTPException
 from typing import List
 from vars import file_columns
 
