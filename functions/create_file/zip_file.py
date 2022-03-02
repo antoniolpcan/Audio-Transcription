@@ -3,7 +3,9 @@ from .zip_rm_cr import rm_dir
 from shutil import make_archive
 
 def get_zip():
-
+    """
+    Compacta arquivo.
+    """
     try:
         rm_dir('ziped')
     except:

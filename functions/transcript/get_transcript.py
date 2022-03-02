@@ -5,7 +5,7 @@ import io
 
 export_audio = "wav"
 
-def transcription(file,language_audio):
+def transcription(file,language_audio,mostrar_outras_ver):
      """
      Gera transcrição
      """
@@ -17,6 +17,6 @@ def transcription(file,language_audio):
           r=sr.Recognizer()
           with sr.AudioFile(sound_export) as source:
                audio=r.record(source)
-          return r.recognize_google(audio,language=language_audio,show_all=True)
+          return r.recognize_google(audio,language=language_audio,show_all=mostrar_outras_ver)
      except:
           raise HTTPException(400,detail=f"Erro ao transcrever o audio na linguagem '{language_audio}'.")

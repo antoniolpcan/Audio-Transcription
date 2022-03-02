@@ -6,7 +6,7 @@ from io import BytesIO
 from typing import List
 from vars import file_columns
 
-async def transcription_audio(file: List[UploadFile] = File(...),language_audio: str = Body("pt-BR"),formato_saida: str = Body("json")):
+async def transcription_audio(file: List[UploadFile] = File(...),language_audio: str = Body("pt-BR"),formato_saida: str = Body("json"),mostrar_outras_ver: bool = Body(False)):
     """
     Api transcrever áudio.
     """
@@ -16,7 +16,7 @@ async def transcription_audio(file: List[UploadFile] = File(...),language_audio:
         check_content_type(i)
         arq = await i.read()
         arqu=BytesIO(arq)
-        transcript = transcription(arqu,language_audio)
+        transcript = transcription(arqu,language_audio,mostrar_outras_ver)
         t.append({f"{file_columns[0]}":name,f"{file_columns[1]}":transcript})
     cria_pasta()
     file_res(t,formato_saida)
